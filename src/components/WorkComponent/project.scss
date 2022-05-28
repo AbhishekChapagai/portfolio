@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+// Variables declared
+$primary-color: #FF2800;
+$secondary-color: #B20600;
+$font-style: 'Poppins', sans-serif;
+
+@font-face {
+    font-family: 'absterregular';
+    src: url('../../fonts/abster-500-webfont.woff2') format('woff2'),
+        url('../../fonts/abster-500-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// PROJECTS
+
+.main_work_container {
+    width: 100%;
+    padding: 20px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .work_text {
+        width: 100%;
+        font-family: absterregular;
+        font-size: 1.8rem;
+        letter-spacing: .6rem;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .work_container {
+        width: 70%;
+        padding: 30px;
+        border-radius: 2px;
+        margin-top: 3.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: 30px;
+        row-gap: 30px;
+
+    }
+
+    .work_card {
+        width: 350px;
+        height: 65vh;
+        background-color: white;
+        border-radius: 5px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: 0.5s ease-in-out;
+        z-index: 5;
+        border-radius: 5px;
+        box-shadow: 5px 5px 20px #c2c1c1;
+
+
+        .work_card_image {
+            width: 100%;
+            height: 30vh;
+            z-index: 1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                width: auto;
+                height: 25vh;
+                aspect-ratio: 16/9;
+                object-fit: contain;
+            }
+        }
+
+        .project_title {
+            color: black;
+            font-weight: bolder;
+            font-size: 1.3rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        & p {
+            color: rgb(107, 107, 107);
+            font-family: $font-style;
+            padding: 10px;
+            font-size: 1.3rem;
+            text-align: center;
+
+        }
+
+        .project_button {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-family: $font-style;
+            color: white;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            background-color: $primary-color;
+            position: absolute;
+            bottom: -10px;
+            z-index: 2;
+            border-radius: 0 0 5px 5px;
+            opacity: 1;
+        }
+
+        .project_button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            background-color: $secondary-color;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 300ms ease-in-out;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .project_button:hover::before,
+        .project_button:focus::before {
+            transform: scaleY(1);
+        }
+    }
+
+    .work_card:hover {
+        & p {
+            opacity: 1;
+        }
+
+        .project_button {
+            opacity: 1;
+        }
+    }
+
+    .work_card:hover::before {
+        opacity: 1;
+    }
+}
+
+// media querry
+@media (max-width: 998px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 45%;
+    }
+}

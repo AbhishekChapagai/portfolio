@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+// Variables declared
+$primary-color: #FF2800;
+$secondary-color: #B20600;
+$font-style: 'Poppins', sans-serif;
+
+// ABOUT
+
+.main_about_container {
+    width: 100%;
+    margin-top: 10px;
+
+    px .about_text {
+        height: 15vh;
+        width: 100%;
+        font-family: $font-style;
+        font-size: 1.1rem;
+        letter-spacing: .6rem;
+        font-weight: bold;
+        padding: 20px;
+        text-align: center;
+        text-transform: uppercase;
+
+        & p {
+            color: rgb(0, 0, 0);
+            line-height: 5;
+        }
+    }
+
+    .about_container {
+        margin-top: 50px;
+        padding: 20px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 93%);
+        background-image: url('../../image//about.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: fixed;
+        background-attachment: fixed;
+    }
+
+    .about_me {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 50px;
+
+        .about_me_image {
+            min-width: 25%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about_me_image img {
+            width: 50%;
+            height: 50%;
+            border-radius: 100%;
+        }
+
+        .about_me_details {
+            padding: 50px;
+            text-align: justify;
+
+            & p {
+                font-size: 1.5rem;
+                color: white;
+                font-family: $font-style;
+
+                & span {
+                    color: $primary-color;
+                    font-weight: bold;
+                    // font-style: italic;
+                }
+            }
+
+            .my_skill {
+                margin-top: 30px;
+
+                & p {
+                    text-transform: uppercase;
+                    font-family: $font-style;
+                    font-weight: bold;
+                    color: rgb(156, 156, 156);
+                    letter-spacing: 2px;
+                    font-size: 1.4rem;
+                }
+            }
+
+            .skill_p {
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+                // background-color: #20979a;
+                column-gap: 10px;
+
+                & p {
+                    background-color: #bab7b7;
+                    padding: 10px;
+                    font-family: $font-style;
+                    text-transform: uppercase;
+                    font-size: 1.1rem;
+                    border-radius: 2px;
+                    color: black;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+}
+
+
+// MEDIA QUERRY
+
+// @media only screen and(max-width: 998px) {
+
+//     .main_about_container{
+//         background-color: #FF5403;
+
+//         .about_container{
+//             background-color: blue;
+//             .about_me{
+//                 background-color: red;
+//                 .about_me_image{
+//                     background-color: aqua;
+//                     width: 35%;
+//                     height: 35vh;
+//                 }
+//                 .about_me_details{
+//                     background-color: steelblue;
+//                 }
+//             }
+//         }
+//     }
+
+// }
+
+///////////////////////////////////////
+
+// media querry
+@media (max-width: 998px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 45%;
+    }
+}
