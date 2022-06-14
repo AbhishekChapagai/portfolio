@@ -107,15 +107,24 @@ $font-style: 'Poppins', sans-serif;
             flex-direction: column;
             border-radius: 5px;
 
-            & form {
+
+            .form {
                 width: 100%;
                 padding: 20px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
 
-                & input {
+                .form_error_message {
+                    color: red;
+                    font-family: $font-style;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    letter-spacing: 1.5px;
+                }
+
+                .form_input {
                     width: 100%;
                     outline: none;
                     border: .5px solid rgb(220, 220, 220);
@@ -128,7 +137,7 @@ $font-style: 'Poppins', sans-serif;
                     letter-spacing: 1.5px;
                 }
 
-                & textarea {
+                .message_input {
                     width: 100%;
                     outline: none;
                     padding: 5px;
@@ -145,7 +154,7 @@ $font-style: 'Poppins', sans-serif;
                     border: none;
                     border-radius: 5px;
                     background-color: #0b0c11;
-                    width: 50%;
+                    width: 100%;
                     padding: 5px;
                     font-size: 1.5rem;
                     color: white;

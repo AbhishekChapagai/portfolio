@@ -8,13 +8,14 @@ import Project from './components/WorkComponent/projects';
 function App() {
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Main />} exact />
-        <Route path="/projectDescription" element={<ProjectDescription />} exact />
-      </Routes>
-    </Router>
-
+  
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main />} exact />
+          <Route path="/projectDescription" element={<ProjectDescription />} exact />
+        </Routes>
+      </Router>
+  
 
   );
 }

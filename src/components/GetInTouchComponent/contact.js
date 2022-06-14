@@ -1,9 +1,41 @@
 import React from 'react'
 import "./contact.scss"
 import contactIMG from '../../image/contact.jpg'
+import * as Yup from 'yup'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// toast.configure();
+
 // import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-const Contact = () => {
+function Contact() {
+
+    const initialValues = {
+        fullname: '',
+        email: '',
+        message: '',
+    }
+
+    const formValidation = Yup.object().shape({
+        fullname: Yup.string().required("Required *").max(25, "Too Long !").min(2, 'Too short!'),
+        email: Yup.string().required('Required *').email("Please enter a valid email address !!"),
+        message: Yup.string().required("Required *").max(800, "Max character (800) reached").min(30, "Too short !"),
+    });
+
+    const handleSubmit = (values) => {
+        // e.preventDefault();
+        // toast.success('Update Successful', {
+        //     position: "bottom-right",
+        //     autoClose: 5000,
+        //     hideProgressBar: true,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        // });
+
+    }
     return (
         <>
             <div className='main_contact_container' id='contact'>
@@ -21,13 +53,17 @@ const Contact = () => {
                         </p>
                     </div>
                     <div className='contact_form'>
-                        <form>
-                            <input type='text' placeholder='Your Fullname' /><br></br><br></br>
-                            <input type='email' placeholder='Your Email' /><br></br><br></br>
-                            <textarea placeholder='Your Message' rows={6}></textarea><br></br><br></br>
-                            <button><span class="material-symbols-outlined">send</span>&nbsp;SEND</button><br></br>
-                        </form>
-
+                        <Formik initialValues={initialValues} onSubmit={(values => handleSubmit(values))} validationSchema={formValidation}>
+                            <Form className='form'>
+                                <p className='form_error_message'><ErrorMessage name="fullname" /></p>
+                                <Field className='form_input' type='text' name="fullname" placeholder='Your Fullname' /><br></br><br></br>
+                                <p className='form_error_message'><ErrorMessage name="email" /></p>
+                                <Field className='form_input' type='email' name="email" placeholder='Your Email' /><br></br><br></br>
+                                <p className='form_error_message'><ErrorMessage name="message" /></p>
+                                <Field className='message_input' as='textarea' name="message" placeholder='Your Message' rows={6} /><br></br><br></br>
+                                <button type='submit'><span class="material-symbols-outlined">send</span>&nbsp;SEND</button><br></br>
+                            </Form>
+                        </Formik>
                     </div>
                 </div>
             </div>
